@@ -1,0 +1,41 @@
+{
+  "template_id": "zen-garden-dispensary-v1",
+  "name": "Zen Garden Stream",
+  "created_at": "2026-02-18T02:09:57Z",
+  "version": "1.0.0",
+
+  "theme": {
+    "style": "luxury_spa",
+    "description": "Premium calming dispensary menu with flowing river animation.",
+    "colors": ["#8A9A5B", "#F5F5DC", "#D4AF37"],
+    "mood": "calming, luxury, organic, flowing",
+    "tags": ["dispensary", "menu", "zen", "nature", "premium"]
+  },
+
+  "capabilities": {
+    "products_per_cycle": 3,
+    "cycles_through_all_products": true
+  },
+
+  "animation": {
+    "duration": 18,
+    "fps": 30,
+    "entrance_duration": 1.5,
+    "idle_duration": 15,
+    "exit_duration": 1.5,
+    "uses_plugins": ["MotionPathPlugin"]
+  },
+
+  "assets": {
+    "background": "https://skoop-general.s3.us-east-1.amazonaws.com/n8n_image_gen%2Fzen_garden_bg-1771380465387.png",
+    "overlays": [],
+    "icons": [],
+    "fonts": ["Cinzel", "Lato"]
+  },
+
+  "technical": {
+    "resolution": "1920x1080",
+    "performance": "optimized",
+    "browser_compatibility": "chrome_latest"
+  }
+}

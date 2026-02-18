@@ -1,0 +1,186 @@
+/*
+  Zen Garden Dispensary Template
+  Theme: Luxury Spa / Modern Dispensary
+  Colors: Sage Green, Warm Beige, Soft Gold
+*/
+
+:root {
+  --sage-green: #8A9A5B;
+  --dark-sage: #556B2F;
+  --warm-beige: #F5F5DC;
+  --soft-gold: #D4AF37;
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --card-border: rgba(212, 175, 55, 0.4);
+  --text-primary: #2C3E50;
+  --text-secondary: #5D6D7E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #1a1a1a;
+  font-family: 'Lato', sans-serif;
+  color: var(--text-primary);
+}
+
+#scene {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+
+#background {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://skoop-general.s3.us-east-1.amazonaws.com/n8n_image_gen%2Fzen_garden_bg-1771380465387.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: brightness(0.9); /* Slightly dim to make cards pop */
+}
+
+/* Invisible rail for animation reference */
+#river-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#products-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through if interactive (though not here) */
+}
+
+/* Product Card Styling - Glassmorphism */
+.product {
+  position: absolute;
+  width: 320px;
+  /* Height is auto */
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Initial state off-screen managed by GSAP, but good to set transform-origin */
+  transform-origin: center center;
+  opacity: 0; /* Start hidden, GSAP handles fade in */
+}
+
+.product-image-container {
+  width: 100%;
+  height: 220px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+
+.product-name {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark-sage);
+  margin-bottom: 8px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-category {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 8px;
+  width: 60%;
+}
+
+.product-meta-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product-price {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--soft-gold);
+}
+
+.product-thc {
+  font-weight: 700;
+  color: var(--dark-sage);
+  background: rgba(138, 154, 91, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Foreground Overlay - Atmospheric Grain */
+#foreground-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: transparent;
+  /* Simple grain effect using CSS radial gradient or similar could be added here */
+  box-shadow: inset 0 0 150px rgba(0,0,0,0.3); /* Vignette */
+}
+
+/* UI Layer - Branding */
+#ui-layer {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.menu-title {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: var(--warm-beige);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--soft-gold);
+  padding-bottom: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

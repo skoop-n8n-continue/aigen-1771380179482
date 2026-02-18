@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zen Garden Dispensary Menu</title>
+
+  <!-- GSAP Core + Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/DrawSVGPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MorphSVGPlugin.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scene">
+    <!-- Layer 1: Background -->
+    <div id="background"></div>
+
+    <!-- Layer 2: River Path (Invisible rail for animation) -->
+    <svg id="river-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+      <path id="river-path" d="M -400,250 C 300,250 500,850 1100,600 S 2000,700 2500,1000" fill="none" stroke="transparent" stroke-width="2" />
+    </svg>
+
+    <!-- Layer 3: Products Container -->
+    <div id="products-container"></div>
+
+    <!-- Layer 4: Foreground Overlay (Atmosphere) -->
+    <div id="foreground-overlay"></div>
+
+    <!-- Layer 5: UI / Branding -->
+    <div id="ui-layer">
+      <div class="menu-title">Premium Selection</div>
+    </div>
+  </div>
+
+  <script src="animation.js"></script>
+</body>
+</html>
